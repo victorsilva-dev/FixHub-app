@@ -141,17 +141,25 @@ class Contato extends Component {
             <h6 className="green-text">
               <b>Encontre-nos nas redes sociais</b>
             </h6>
-            <a href="https://pt-br.facebook.com/fixhubservicos/" className="">
+            <a
+              href="https://pt-br.facebook.com/fixhubservicos/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={facebookIcon} height="50px" />
             </a>
             <a
               href="https://www.instagram.com/fixhub_servicos/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mx-4"
             >
               <img src={instagramIcon} height="50px" />
             </a>
             <a
               href="https://github.com/vsilvasoares1710/Projeto-Recode"
+              target="_blank"
+              rel="noopener noreferrer"
               className=""
             >
               <img src={githubIcon} height="50px" />
