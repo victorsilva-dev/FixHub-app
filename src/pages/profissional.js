@@ -110,56 +110,56 @@ class Profissional extends Component {
 
     if (redes.facebook)
       dadosARenderizar.push(
-        <div className="d-flex flex-nowrap justify-content-end text-break-all">
-          <a
-            href={`http://www.${redes.facebook}`}
-            className="d-flex flex-nowrap"
-          >
-            <h3 className="text-link">Facebook</h3>
-          </a>
+        <div className="d-flex flex-nowrap text-break-all">
           <a
             href={`http://www.${redes.facebook}`}
             className="d-flex flex-nowrap"
           >
             <img src={facebookIcon} height="35" className="ml-2 mr-2" />
           </a>
+          <a
+            href={`http://www.${redes.facebook}`}
+            className="d-flex flex-nowrap"
+          >
+            <h3 className="text-link ml-1">Facebok</h3>
+          </a>
         </div>
       );
 
     if (redes.linkedin)
       dadosARenderizar.push(
-        <div className="d-flex flex-nowrap justify-content-end text-break-all">
-          <a
-            href={`http://www.${redes.linkedin}`}
-            className="d-flex flex-nowrap"
-          >
-            <h3 className="text-link">LinkedIn</h3>
-          </a>
+        <div className="d-flex flex-nowrap text-break-all">
           <a
             href={`http://www.${redes.linkedin}`}
             className="d-flex flex-nowrap"
           >
             <img src={linkedinIcon} height="30" className="ml-2 mr-1" />
           </a>
+          <a
+            href={`http://www.${redes.linkedin}`}
+            className="d-flex flex-nowrap"
+          >
+            <h3 className="text-link ml-1">LinkedIn</h3>
+          </a>
         </div>
       );
 
     if (redes.siteOficial)
       dadosARenderizar.push(
-        <div className="d-flex flex-nowrap justify-content-end text-break-all">
+        <div className="d-flex flex-nowrap text-break-all">
           <a
-            href={`http://www.${redes.siteOficial}`}
-            className="d-flex flex-nowrap"
-          >
-            <h3 className="text-link" width="100">
-              Site
-            </h3>
-          </a>
-          <a
-            href={`http://www.${redes.siteOficial}`}
+            href={`http://${redes.siteOficial}`}
             className="d-flex flex-nowrap"
           >
             <img src={siteOficialIcon} height="35" className="ml-1" />
+          </a>
+          <a
+            href={`http://${redes.siteOficial}`}
+            className="d-flex flex-nowrap"
+          >
+            <h3 className="text-link ml-1" width="100">
+              Site
+            </h3>
           </a>
         </div>
       );
@@ -241,7 +241,7 @@ class Profissional extends Component {
                       <h3 className="text-content text-left">Contato:</h3>
                       <div className="card-divider-long"></div>
                       <div className="">
-                        <div className="d-flex flex-wrap justify-content-between">
+                        <div >
                           <div className="pb-2">{this.renderContatos()}</div>
                           <div className=" mt-2">
                             {this.renderRedesSociais()}

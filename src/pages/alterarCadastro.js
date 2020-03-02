@@ -639,31 +639,28 @@ class AlterarCadastro extends Component {
     this.setState({ loading: false });
   }
 
-  deletarImagem(imagemADeletar){
+  deletarImagem(imagemADeletar) {
+    const imagens = this.state.formulario.imagens;
 
-    const imagens = this.state.formulario.imagens
+    const formulario = this.state.formulario;
 
-    const formulario = this.state.formulario
-
-
-    if(typeof imagens === "string"){
-      formulario.imagens = null
-      this.setState({ formulario })
+    if (typeof imagens === "string") {
+      formulario.imagens = null;
+      this.setState({ formulario });
     } else {
       const novasImagens = imagens.filter(imagem => {
-        return imagem !== imagemADeletar
-      })
-      formulario.imagens = novasImagens
-      this.setState({ formulario })
+        return imagem !== imagemADeletar;
+      });
+      formulario.imagens = novasImagens;
+      this.setState({ formulario });
     }
-
   }
 
   componentDidMount() {
     this.checarLogin();
     console.log(this.state);
     this.carregarFiltros();
-    document.getElementById("top-of-root").scrollIntoView(true)
+    document.getElementById("top-of-root").scrollIntoView(true);
   }
   componentDidUpdate() {
     console.log("ESTADO:", this.state);
@@ -723,7 +720,7 @@ class AlterarCadastro extends Component {
                             name="file"
                             type="file"
                             id="file-foto"
-                            className="input-file"
+                            className="d-none"
                             onChange={e => this.selecionarFoto(e)}
                           />
                         </div>
@@ -1128,7 +1125,9 @@ class AlterarCadastro extends Component {
                         </label>
                         <br />
                         <div className="d-flex flex-row flex-wrap">
-                          {!this.state.formulario.imagens ? (
+                          {this.state.cadastro === "Carregando" ? (
+                            <></>
+                          ) : !this.state.formulario.imagens ? (
                             <> </>
                           ) : typeof this.state.formulario.imagens ===
                             "string" ? (
@@ -1144,7 +1143,14 @@ class AlterarCadastro extends Component {
                                     width="100%"
                                   />
                                 </a>
-                                <button className="btn btn-info my-1" onClick={() => this.deletarImagem(this.state.formulario.imagens)}>
+                                <button
+                                  className="btn btn-info my-1"
+                                  onClick={() =>
+                                    this.deletarImagem(
+                                      this.state.formulario.imagens
+                                    )
+                                  }
+                                >
                                   Deletar Imagem
                                 </button>
                               </div>
@@ -1161,7 +1167,10 @@ class AlterarCadastro extends Component {
                                         width="100%"
                                       />
                                     </a>
-                                    <button className="btn btn-info my-1" onClick={() => this.deletarImagem(imagem)}>
+                                    <button
+                                      className="btn btn-info my-1"
+                                      onClick={() => this.deletarImagem(imagem)}
+                                    >
                                       Deletar Imagem
                                     </button>
                                   </div>
@@ -1185,7 +1194,7 @@ class AlterarCadastro extends Component {
                           name="file"
                           type="file"
                           id="file-imagens"
-                          className="input-file"
+                          className="d-none"
                           onChange={e => this.selecionarImagem(e)}
                         />
                       </div>
